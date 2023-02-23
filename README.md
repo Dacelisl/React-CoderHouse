@@ -1,14 +1,28 @@
-<h1 align="center"> NavBar Con React </h1>
+<h1 align="center"> Routing y Navegación </h1>
 
-![Screenshot of NavBar-React](https://raw.githubusercontent.com/Dacelisl/NavBar-React/master/navBar.gif)
+![Screenshot of NavBar-React](https://raw.githubusercontent.com/Dacelisl/NavBar-React/master/Routing&Navegación.gif)
 
 Link del Proyecto: [NavBar-React](https://dacelisl.github.io/NavBar-React/).
 
+## Segunda pre- entrega E-commerce
 
-## Primera pre- entrega E-commerce
+* Deberás desarrollar la navegabilidad básica de la aplicación, demostrando que la app permite ver el catálogo, y navegar a un detalle.
 
-* Crea una carpeta dentro de src llamada "components" que contenga la implementación del componente NavBar. el archivo NavBar.js debe      renderizar una barra de menú (Navbar).
+* Configura en App.js el routing usando un BrowserRouter de tu aplicación con react-router-dom
 
-* Crea un componente CartWidget con un ícono y una notificación mostrando un número hardcodeado (fijo). Este servirá luego para indicar la cantidad de elementos que tenemos en el carrito. Ubica este componente (CartWidget) dentro de Navbar.. Agrega algunos estilos con bootstrap/materialize u otro.
+* Componentes:
+    - Navbar con cart
+    - Catálogo
+    - Detalle de producto
 
-* Crea un componente contenedor ItemListContainer.js con una prop "greeting", y muestra el mensaje dentro del contenedor con el styling integrado.
+* Rutas a configurar
+    - ‘/’ navega a <ItemListContainer />
+    - ‘/category/:id’  <ItemListContainer />
+    - ‘/item/:id’ navega a <ItemDetailContainer />
+
+
+* Links a configurar
+    - Clickear en el brand debe navegar a ‘/’
+    - Clickear un Item debe navegar a /item/:id
+    - Clickear en una categoría del navbar debe navegar a /category/:categoryId 
+
