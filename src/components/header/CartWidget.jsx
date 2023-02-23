@@ -1,5 +1,4 @@
 export const CartWidget = () => {
-    
   return (
     <button className="session ">
             <span className="items">20</span>

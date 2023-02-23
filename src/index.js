@@ -1,12 +1,10 @@
 import ReactDOM from "react-dom/client";
-import NavBar from "./components/NavBar";
-import {ItemListContainer} from './components/ItemListContainer';
+import { App } from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <>
-    <NavBar />
-    <ItemListContainer greeting={'Toda la informacion relevante va aqui'}></ItemListContainer>
+    <App></App>
   </>
 );
