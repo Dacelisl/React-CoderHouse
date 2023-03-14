@@ -5,23 +5,32 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Banner } from "./components/Banner";
 import { ItemDetail } from "./components/ItemDetail";
 import "./style.css";
+import { NotFound } from "./components/404/NotFound";
+import { CustomContext } from "./components/context/CustomContext";
 
 export const App = () => {
-  const greeting = "Ofertas Imperdibles";
   return (
     <>
       <BrowserRouter>
-        <NavBar />
-        <Banner greeting={greeting} />
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route
-            path="/categories/:categoryId"
-            element={<ItemListContainer />}
-          />
-          <Route path="/product/:id" element={<ItemDetail />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+        <CustomContext>
+          <NavBar />
+          <Banner />
+          <Routes>
+            <Route
+              path="/"
+              element={<ItemListContainer />}
+              errorElement={<NotFound />}
+            />
+            <Route
+              path="/categories/:categoryId"
+              loader={<NotFound />}
+              element={<ItemListContainer />}
+            />
+            <Route path="/product/:id" element={<ItemDetail />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/*" element={<NotFound />} />
+          </Routes>
+        </CustomContext>
       </BrowserRouter>
     </>
   );

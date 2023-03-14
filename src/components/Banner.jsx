@@ -1,5 +1,25 @@
+import { useState, useEffect } from "react";
+export const Banner = () => {
+  const [banner, setBanner] = useState(
+    "Operación Black Friday: ¡disfruta de los súper descuentos!"
+  );
+  
+  useEffect(() => {
+    const myArray = [
+      "¡Paga tu compra sin interes!",
+      "¡Ofertas rápidas! Consigue un 2x1 en toda la tienda online",
+      "Solo este fin de semana tienes un 25 % de descuento en todos los artículos de hogar",
+      "¡Descuento imperdible! ¡Solo hoy!",
+      "Liquidación: 50 % DE DESCUENTO",
+    ];
+    const interval = setInterval(() => {
+    let rand = Math.floor(Math.random() * myArray.length);
+    const rValue = myArray[rand];
+    setBanner(rValue);
+  }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
-export const Banner = ({ greeting }) => {
   return (
     <div className="block m-auto mt-40 w-4/5 mb-9 rounded-xl bg-purple-600 ">
       <div className="flow-root">
@@ -20,8 +40,10 @@ export const Banner = ({ greeting }) => {
             />
           </svg>
         </span>
-        <p className="text-center m-1 mt-1 tracking-widest font-semibold text-xl text-slate-100">{greeting}</p>
+        <p className="text-center m-1 mt-1 tracking-widest font-semibold text-xl text-slate-100">
+          {banner}
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -15,7 +15,7 @@
   #notfound .notfound {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -73,6 +73,7 @@
     border: 2px solid;
     background: 0 0;
     padding: 10px 40px;
+    margin-top: 10%;
     font-size: 14px;
     font-weight: 700;
     -webkit-transition: 0.2s all;

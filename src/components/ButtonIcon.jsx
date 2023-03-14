@@ -1,8 +1,9 @@
-export const ButtonIcon = ({ title, nameIcon, sizeIcon, ...others }) => {
+export const ButtonIcon = ({ title, nameIcon, sizeIcon,color, ...others }) => {
   return (
     <>
       <button
-        className=" bg-sky-500 flex w-max text-center items-center px-2 py-2 rounded-md font-medium text-cyan-50 hover:bg-sky-600 active:transform active:translate-y-px"
+      style={{backgroundColor:color}}
+        className=" bg-sky-500 flex w-max text-center items-center px-2 py-2 rounded-md font-medium text-cyan-50 enabled:hover:bg-sky-600 enabled:active:transform enabled:active:translate-y-px disabled:opacity-75"
         {...others}
       >
         {nameIcon ? (

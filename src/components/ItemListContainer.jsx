@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { NotFound } from "./404/NotFound";
 import { ItemList } from "./ItemList";
+import { Spinner } from "./spinner/Spinner";
 
 export const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
@@ -19,6 +20,7 @@ export const ItemListContainer = () => {
         setProducts(data.products);
       } catch {
         setError(true);
+        <Link to={"/*"} />;
       }
     };
     getProducts();
@@ -33,11 +35,13 @@ export const ItemListContainer = () => {
               <ItemList products={products} />
             </>
           ) : (
-            <NotFound />
+            <span className="flex relative top-2/3 left-1/2 ">
+              <Spinner />
+            </span>
           )}
         </>
       ) : (
-        <NotFound />
+        <NotFound message={products.message} />
       )}
     </>
   );
