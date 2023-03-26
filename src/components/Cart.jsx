@@ -8,13 +8,13 @@ import { Buy } from "./Buy";
 import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
-  const { cart, user, detail, removeProduct, checkOut, setCheckOut } =
+  const { cart, userLocal, detail, removeProduct, checkOut, setCheckOut } =
     useContext(customContext);
   const navigate = useNavigate();
   return (
     <>
       {cart.length > 0 ? (
-        <div className="table w-[80%] absolute left-[10%] overflow-auto"> 
+        <div className="table w-[80%] absolute left-[10%] overflow-auto">
           <div className="table-header-group h-11 bg-sky-100 ">
             <div className="table-row">
               <div className="table-cell text-center align-middle"></div>
@@ -56,21 +56,14 @@ export const Cart = () => {
               </div>
             </div>
           </div>
-          {user.userName !== "" ? (
-            <div className="mt-3 flex absolute right-0 text-2xl rounded-lg shadow-lg shadow-slate-600">
-              <ButtonIcon
-                title={"Purchase"}
-                onClick={() => setCheckOut(true)}
-              />
-            </div>
-          ) : (
-            <div className="mt-3 flex absolute right-0 text-2xl rounded-lg shadow-lg shadow-slate-600">
-              <ButtonIcon
-                title={"Login To Purchase"}
-                onClick={() => navigate("/login")}
-              />
-            </div>
-          )}
+          <div className="mt-3 flex absolute right-0 text-2xl rounded-lg shadow-lg shadow-slate-600">
+            <ButtonIcon
+              title={userLocal? "Purchase" : "Login To Purchase"}
+              onClick={() => {
+                userLocal? setCheckOut(true) : navigate("/login");
+              }}
+            />
+          </div>
         </div>
       ) : (
         <>

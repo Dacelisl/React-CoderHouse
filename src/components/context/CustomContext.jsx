@@ -18,7 +18,6 @@ export const CustomContext = ({ children }) => {
   useEffect(() => {
     const user_local = localStorage.getItem("user_local");
     setUserLocal(user_local ? user_local : "");
-
     function allInfo() {
       let newInfo = { units: 0, price: 0 };
       cart.forEach((item) => {
