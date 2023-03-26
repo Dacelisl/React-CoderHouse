@@ -14,10 +14,13 @@ export const CustomContext = ({ children }) => {
     password: "",
     id: "",
   });
+  console.log('datos del usuario ', user );
 
   useEffect(() => {
     const user_local = localStorage.getItem("user_local");
     setUserLocal(user_local ? user_local : "");
+    setUser({ ...user, userName: user_local });
+    console.log('user en context', user);
 
     function allInfo() {
       let newInfo = { units: 0, price: 0 };

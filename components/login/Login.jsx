@@ -46,14 +46,15 @@ export const Login = () => {
   };
 
   const login = async () => {
+    console.log('ingreso al login ');
     const userDb = await exist("mail", user.mail);
     let res = "";
     if (userDb.length > 0) {
       if (userDb[0].password === user.password) {
-        res = `welcome Back ${userDb[0].userName}`;
         localStorage.setItem("user_local", userDb[0].userName);
         setUser(userDb[0]);
         setUserLocal(userDb[0].userName);
+        res = `welcome Back ${userDb[0].userName}`;
       } else {
         res = "wrong password";
       }

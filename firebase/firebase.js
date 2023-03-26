@@ -15,23 +15,14 @@ import {
   signOut,
 } from "firebase/auth";
 
-/* const firebaseConfig = {
-  apiKey: process.env. REACT_APP_APIKEY,
-  authDomain: process.env.REACT_APP_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_PROJECTID,
-  storageBucket: process.env.REACT_APP_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP_APPID,
-}; */
 const firebaseConfig = {
-  apiKey: "AIzaSyDQignB8MkM0ZW2X2kNWQjoGep9wWLk9A8",
-  authDomain: "react-coder-75159.firebaseapp.com",
-  projectId: "react-coder-75159",
-  storageBucket: "react-coder-75159.appspot.com",
-  messagingSenderId: "669255391753",
-  appId: "1:669255391753:web:afdc6ac6640766ca5036d8"
+  apiKey: import.meta.env.REACT_APP_APIKEY,
+  authDomain: import.meta.env.REACT_APP_AUTHDOMAIN,
+  projectId: import.meta.env.REACT_APP_PROJECTID,
+  storageBucket: import.meta.env.REACT_APP_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.REACT_APP_MESSAGINGSENDERID,
+  appId: import.meta.env.REACT_APP_APPID,
 };
-
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
@@ -40,7 +31,6 @@ export const registerWithGoogle = async () => {
   const googleProvider = new GoogleAuthProvider();
   try {
     const res = await signInWithPopup(auth, googleProvider);
-    console.log('res', res);
     return res.user;
   } catch (error) {
     console.log("error", error);

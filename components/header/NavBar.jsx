@@ -9,7 +9,8 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import { customContext } from "../context/CustomContext";
 
 export const NavBar = () => {
-  const { setUser, reset, userLocal, setUserLocal } = useContext(customContext);
+  console.log('user en nav', user);
+  const { setUser, reset, userLocal ,setUserLocal } = useContext(customContext);
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -18,7 +19,7 @@ export const NavBar = () => {
         const res = await getCategories();
         setCategories(res);
       } catch (error) {
-        console.log("error en el category", error);
+        navigate("/NotFound");
       }
     }
     dataCategory();
@@ -37,62 +38,43 @@ export const NavBar = () => {
     logOutGoogle();
     navigate("/");
   };
-
-  function hamburgerButton() {
+  const buttonHamburger = (clas, name) => {
+    return (
+      <>
+        <ButtonIcon
+          className={clas}
+          nameIcon={name}
+          sizeIcon={"large"}
+          onClick={hamburgerButton}
+        />
+      </>
+    );
+  };
+  const hamburgerButton = () => {
     document.querySelector(".navbar").classList.toggle("active");
     document.body.classList.toggle("active");
-  }
+  };
   return (
     <header className="header">
       <div className="container">
         <NavLink to={"/"} className="logo">
           <img src={logo1} alt="Film logo" />
         </NavLink>
-        <ButtonIcon
-          className="menu-open-btn"
-          nameIcon={"reorder-three-outline"}
-          sizeIcon={"large"}
-          onClick={hamburgerButton}
-        />
+        {buttonHamburger("menu-open-btn", "reorder-three-outline")}
         <nav className="navbar">
           <div className="navbar-top">
-            <NavLink to={"/"} className="logo">
-              <img src={logo1} alt="Film logo" />
-            </NavLink>
-            <ButtonIcon
-              className="menu-close-btn"
-              nameIcon={"close-outline"}
-              onClick={hamburgerButton}
-              sizeIcon={"large"}
-            />
+            {buttonHamburger("menu-close-btn", "close-outline")}
           </div>
           <CategoryList categories={categories} onClick={hamburgerButton} />
-
-          {userLocal !== "" ? (
-            <>
-              <Link to={"/"}>
-                <ButtonIcon
-                  className="session ml-1  lg:mr-12"
-                  nameIcon={"log-in-outline"}
-                  sizeIcon={"large"}
-                  title={userLocal}
-                  onClick={logOut}
-                />
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link to={"/Login"}>
-                <ButtonIcon
-                  className="session ml-1  lg:mr-12"
-                  nameIcon={"person"}
-                  sizeIcon={"large"}
-                  title="Sing In"
-                />
-              </Link>
-            </>
-          )}
-
+          <Link to={userLocal !== "" ? "/" : "/Login"}>
+            <ButtonIcon
+              className="session ml-1  lg:mr-12"
+              nameIcon={userLocal !== "" ? "log-in-outline" : "person"}
+              sizeIcon={"large"}
+              title={userLocal !== "" ? userLocal : "Sing In"}
+              onClick={logOut}
+            />
+          </Link>
           <Link to={"/cart"}>
             <CartWidget />
           </Link>
