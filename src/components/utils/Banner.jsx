@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-export const Banner = () => {
+const Banner = () => {
   const [banner, setBanner] = useState(
     "Operación Black Friday: ¡disfruta de los súper descuentos!"
   );
-  
+
   useEffect(() => {
     const myArray = [
       "¡Paga tu compra sin interes!",
@@ -13,10 +13,10 @@ export const Banner = () => {
       "Liquidación: 50 % DE DESCUENTO",
     ];
     const interval = setInterval(() => {
-    let rand = Math.floor(Math.random() * myArray.length);
-    const rValue = myArray[rand];
-    setBanner(rValue);
-  }, 5000);
+      let rand = Math.floor(Math.random() * myArray.length);
+      const rValue = myArray[rand];
+      setBanner(rValue);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -47,3 +47,4 @@ export const Banner = () => {
     </div>
   );
 };
+export default Banner;

@@ -1,15 +1,15 @@
-import { useEffect, useState, useContext } from "react";
-import { CartWidget } from "./CartWidget";
-import { CategoryList } from "./CategoryList";
-import { ButtonIcon } from "../utils/ButtonIcon";
+import { useEffect, useState, useContext, lazy } from "react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import { getCategories, logOutGoogle } from "../../firebase/firebase";
+import  {customContext}  from "../context/CustomContext";
 import logo1 from "../../assets/logo1.png";
 import "./header.css";
-import { NavLink, Link, useNavigate } from "react-router-dom";
-import { customContext } from "../context/CustomContext";
+const CartWidget = lazy( ()=> import ("./CartWidget"));
+const CategoryList = lazy( ()=> import ("./CategoryList"));
+const ButtonIcon = lazy( ()=> import ("../utils/ButtonIcon"));
 
 export const NavBar = () => {
-  const { setUser, reset, userLocal ,setUserLocal } = useContext(customContext);
+  const { setUser, reset, userLocal, setUserLocal } = useContext(customContext);
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -65,7 +65,7 @@ export const NavBar = () => {
             {buttonHamburger("menu-close-btn", "close-outline")}
           </div>
           <CategoryList categories={categories} onClick={hamburgerButton} />
-          <Link to={userLocal !== "" ? "/" : "/Login"}>
+          <NavLink to={userLocal !== "" ? "/" : "/Login"}>
             <ButtonIcon
               className="session ml-1  lg:mr-12"
               nameIcon={userLocal !== "" ? "log-in-outline" : "person"}
@@ -73,7 +73,7 @@ export const NavBar = () => {
               title={userLocal !== "" ? userLocal : "Sing In"}
               onClick={logOut}
             />
-          </Link>
+          </NavLink>
           <Link to={"/cart"}>
             <CartWidget />
           </Link>
@@ -82,3 +82,4 @@ export const NavBar = () => {
     </header>
   );
 };
+export default NavBar

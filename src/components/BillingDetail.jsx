@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
-import { customContext } from "./context/CustomContext";
-import { ButtonIcon } from "../components/utils/ButtonIcon";
-import { getOrder } from "../firebase/firebase";
+import { useState, useEffect, useContext, lazy } from "react";
 import { useNavigate } from "react-router-dom";
+import { getOrder } from "../firebase/firebase";
+import { customContext } from "./context/CustomContext";
+const ButtonIcon = lazy(() => import("../components/utils/ButtonIcon"));
 
-export const BillingDetail = ({ order }) => {
+const BillingDetail = ({ order }) => {
   const { billing, reset } = useContext(customContext);
   const navigate = useNavigate();
   const [date, setDate] = useState("");
@@ -196,3 +196,4 @@ export const BillingDetail = ({ order }) => {
     </div>
   );
 };
+export default BillingDetail;

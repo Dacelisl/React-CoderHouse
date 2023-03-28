@@ -1,6 +1,7 @@
-import { Item } from "./Item";
+import { lazy } from "react";
+const Item = lazy(() => import("./Item"));
 
-export const ItemList = ({ products }) => {
+const ItemList = ({ products }) => {
   return (
     <div className="grid sm: grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 justify-items-center">
       {products.map((product) => (
@@ -9,3 +10,4 @@ export const ItemList = ({ products }) => {
     </div>
   );
 };
+export default ItemList;

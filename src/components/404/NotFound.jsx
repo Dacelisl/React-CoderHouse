@@ -1,7 +1,7 @@
 import "./404.css";
 import { NavLink } from "react-router-dom";
 
-export const NotFound = ({message}) => {
+const NotFound = ({message}) => {
   return (
     <div id="notfound">
       <div className="notfound">
@@ -14,3 +14,4 @@ export const NotFound = ({message}) => {
     </div>
   );
 };
+export default NotFound

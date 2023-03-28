@@ -1,7 +1,8 @@
-import { ButtonIcon } from "./utils/ButtonIcon";
-import { Link } from "react-router-dom";
+import { lazy } from "react";
+const ButtonIcon = lazy( ()=> import ("./utils/ButtonIcon"));
+import   {Link} from "react-router-dom";
 
-export const Item = ({ product }) => {
+const Item = ({ product }) => {
   return (
     <div className="w-64 h-80 ml-4 mr-4 mt-4 mb-4 bg-blue-100">
       <div className="inline-block w-64 h-40 ">
@@ -29,3 +30,4 @@ export const Item = ({ product }) => {
     </div>
   );
 };
+export default Item

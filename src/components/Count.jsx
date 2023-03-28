@@ -1,15 +1,15 @@
-import { useState } from "react";
-import { ButtonIcon } from "./utils/ButtonIcon";
+import { useState, lazy } from "react";
 import { Link } from "react-router-dom";
-import { Toast } from "./utils/Toast";
+const ButtonIcon = lazy(() => import("./utils/ButtonIcon"));
+const Toast = lazy(() => import("./utils/Toast"));
 
-export const Count = ({ onAdd, stock }) => {
+const Count = ({ onAdd, stock }) => {
   const [units, setUnits] = useState(0);
   const [buy, setBuy] = useState(false);
-  const [toast, setToast] = useState(false)
+  const [toast, setToast] = useState(false);
 
   const reset = () => {
-    setToast(!toast)
+    setToast(!toast);
     setBuy(true);
     onAdd(units);
     setTimeout(() => {
@@ -73,6 +73,6 @@ export const Count = ({ onAdd, stock }) => {
         </>
       )}
     </div>
-    
   );
 };
+export default Count;

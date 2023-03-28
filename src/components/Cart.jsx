@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
+import { useContext, lazy } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { customContext } from "./context/CustomContext";
-import { Link } from "react-router-dom";
 import car from "../assets/shopping-venture.jpg";
-import { CartDetail } from "./CartDetail";
-import { ButtonIcon } from "./utils/ButtonIcon";
-import { Buy } from "./Buy";
-import { useNavigate } from "react-router-dom";
+const CartDetail = lazy(() => import("./CartDetail"));
+const ButtonIcon = lazy(() => import("./utils/ButtonIcon"));
+const Buy = lazy(() => import("./Buy"));
 
-export const Cart = () => {
+const Cart = () => {
   const { cart, userLocal, detail, removeProduct, checkOut, setCheckOut } =
     useContext(customContext);
   const navigate = useNavigate();
@@ -58,9 +57,9 @@ export const Cart = () => {
           </div>
           <div className="mt-3 flex absolute right-0 text-2xl rounded-lg shadow-lg shadow-slate-600">
             <ButtonIcon
-              title={userLocal? "Purchase" : "Login To Purchase"}
+              title={userLocal ? "Purchase" : "Login To Purchase"}
               onClick={() => {
-                userLocal? setCheckOut(true) : navigate("/login");
+                userLocal ? setCheckOut(true) : navigate("/login");
               }}
             />
           </div>
@@ -87,3 +86,4 @@ export const Cart = () => {
     </>
   );
 };
+export default Cart;

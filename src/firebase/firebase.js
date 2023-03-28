@@ -1,31 +1,13 @@
-import { initializeApp } from "firebase/app";
+import { auth, db } from "./firebaseBD";
+import { GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 import {
   collection,
   doc,
   getDocs,
-  getFirestore,
   query,
   setDoc,
   where,
 } from "firebase/firestore";
-import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
-  signOut,
-} from "firebase/auth";
-
-const firebaseConfig = {
-  apiKey: import.meta.env.VITE_REACT_APP_APIKEY,
-  authDomain: import.meta.env.VITE_REACT_APP_AUTHDOMAIN,
-  projectId: import.meta.env.VITE_REACT_APP_PROJECTID,
-  storageBucket: import.meta.env.VITE_REACT_APP_STORAGEBUCKET,
-  messagingSenderId: import.meta.env.VITE_REACT_APP_MESSAGINGSENDERID,
-  appId: import.meta.env.VITE_REACT_APP_APPID,
-};
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-export const auth = getAuth(app);
 
 export const registerWithGoogle = async () => {
   const googleProvider = new GoogleAuthProvider();

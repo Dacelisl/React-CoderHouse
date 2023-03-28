@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from "react";
 
 export const customContext = createContext();
 
-export const CustomContext = ({ children }) => {
+const CustomContext = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [checkOut, setCheckOut] = useState(false);
   const [billing, setBilling] = useState(false);
@@ -79,3 +79,4 @@ export const CustomContext = ({ children }) => {
     </customContext.Provider>
   );
 };
+export default CustomContext

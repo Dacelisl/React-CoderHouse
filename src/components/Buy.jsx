@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import { ButtonIcon } from "../components/utils/ButtonIcon";
-import { addOrder } from "../firebase/firebase";
-import { BillingDetail } from "./BillingDetail";
+import { useState, useContext, useEffect, Suspense, lazy } from "react";
 import { customContext } from "./context/CustomContext";
+const ButtonIcon = lazy(() => import("../components/utils/ButtonIcon"));
+const BillingDetail = lazy(() => import("./BillingDetail"));
 
-export const Buy = () => {
+const Buy = () => {
   const { cart, detail, checkOut, setCheckOut, billing, setBilling } =
     useContext(customContext);
   const [userOrder, setUserOrder] = useState({
@@ -40,6 +39,7 @@ export const Buy = () => {
   }, [cart, setUserOrder, detail]);
 
   const sendCheckOut = async () => {
+    const { addOrder } = await import("../firebase/firebase");
     const send = await addOrder(userOrder);
     setUserOrder({
       ...userOrder,
@@ -128,28 +128,30 @@ export const Buy = () => {
                 </div>
               </div>
               <span className=" flex mt-8 mb-5  justify-center font-semibold text-2xl">
-                <ButtonIcon
-                  title={"Send"}
-                  nameIcon={"bag-check-outline"}
-                  disabled={
-                    userOrder.name !== "" &&
-                    userOrder.lastName !== "" &&
-                    userOrder.email !== "" &&
-                    userOrder.phone !== ""
-                      ? false
-                      : true
-                  }
-                  sizeIcon={"large"}
-                  style={{
-                    width: "180px",
-                    backgroundColor: "#749818db",
-                    justifyContent: "space-around",
-                    paddingRight: "30px",
-                    paddingLeft: "unset",
-                    boxShadow: "2px 2px 9px 1px rgb(0 0 0 / 57%)",
-                  }}
-                  onClick={sendCheckOut}
-                />
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ButtonIcon
+                    title={"Send"}
+                    nameIcon={"bag-check-outline"}
+                    disabled={
+                      userOrder.name !== "" &&
+                      userOrder.lastName !== "" &&
+                      userOrder.email !== "" &&
+                      userOrder.phone !== ""
+                        ? false
+                        : true
+                    }
+                    sizeIcon={"large"}
+                    style={{
+                      width: "180px",
+                      backgroundColor: "#749818db",
+                      justifyContent: "space-around",
+                      paddingRight: "30px",
+                      paddingLeft: "unset",
+                      boxShadow: "2px 2px 9px 1px rgb(0 0 0 / 57%)",
+                    }}
+                    onClick={sendCheckOut}
+                  />
+                </Suspense>
               </span>
             </div>
           </div>
@@ -158,3 +160,4 @@ export const Buy = () => {
     </>
   );
 };
+export default Buy;

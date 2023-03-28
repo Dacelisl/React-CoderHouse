@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const CartDetail = ({ product, removeProduct }) => {
+ const CartDetail = ({ product, removeProduct }) => {
   return (
     <div className="table-row">
       <div className="table-cell text-center text-2xl align-middle ml-6">
@@ -36,3 +36,4 @@ export const CartDetail = ({ product, removeProduct }) => {
     </div>
   );
 };
+export default CartDetail 

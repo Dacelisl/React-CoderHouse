@@ -1,4 +1,4 @@
-export const ButtonIcon = ({ title, nameIcon, sizeIcon,color, ...others }) => {
+const ButtonIcon = ({ title, nameIcon, sizeIcon,color, ...others }) => {
   return (
     <>
       <button
@@ -18,3 +18,4 @@ export const ButtonIcon = ({ title, nameIcon, sizeIcon,color, ...others }) => {
     </>
   );
 };
+ export default ButtonIcon

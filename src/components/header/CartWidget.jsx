@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { customContext } from "../context/CustomContext";
+import  {customContext}  from "../context/CustomContext";
 
-export const CartWidget = () => {
+const CartWidget = () => {
   const { detail } = useContext(customContext);
   return (
     <button className="session p-2 ">
@@ -22,3 +22,5 @@ export const CartWidget = () => {
     </button>
   );
 };
+
+export default CartWidget

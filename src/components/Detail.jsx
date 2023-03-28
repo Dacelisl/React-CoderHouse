@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { customContext } from "./context/CustomContext";
-import { Count } from "./Count";
+import { useContext, lazy } from "react";
+import  {customContext}  from "./context/CustomContext";
+const Count = lazy( ()=> import ("./Count"));
 
-export const Detail = ({ product }) => {
+const Detail = ({ product }) => {
   const { addProduct } = useContext(customContext);
 
   const onAdd = (units) => {
@@ -36,3 +36,4 @@ export const Detail = ({ product }) => {
     </div>
   );
 };
+export default Detail

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export const Toast = ({ message, type = "success", nameIcon, time = 5000 }) => {
+ const Toast = ({ message, type = "success", nameIcon, time = 5000 }) => {
   const [estado, setEstado] = useState(true);
   const closeToast = () => setEstado(false);
 
@@ -50,3 +50,4 @@ export const Toast = ({ message, type = "success", nameIcon, time = 5000 }) => {
     </div>
   );
 };
+export default Toast
