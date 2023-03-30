@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import  {customContext}  from "../context/CustomContext";
+import { customContext } from "../context/CustomContext";
 
 const CartWidget = () => {
   const { detail } = useContext(customContext);
   return (
-    <button className="session p-2 ">
+    <button className="flex items-center rounded-xl bg-slate-200 text-lg uppercase mt-3 p-1 ml-14 lg:ml-8 xl:ml-12 lg:mb-3 hover:focus:transition-opacity">
       {detail.units > 0 ? (
-        <span className="items ">{detail.units}</span>
+        <span className="fixed bg-red-600 p-1 rounded-full w-6 h-6 ml-5 mb-11 text-sm border-solid">{detail.units}</span>
       ) : (
         <></>
       )}
@@ -23,4 +23,4 @@ const CartWidget = () => {
   );
 };
 
-export default CartWidget
+export default CartWidget;

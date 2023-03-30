@@ -96,7 +96,7 @@ export const getCategories = async () => {
     list = indexCat.filter((valor, indice) => {
       return indexCat.indexOf(valor) === indice;
     });
-  } while (list.length < 6);
+  } while (list.length < 5);
   list.forEach((element) => {
     category.push(product[element]);
   });

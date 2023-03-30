@@ -11,7 +11,6 @@ const ItemDetail = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log('en el itemdetail');
     const getProduct = async () => {
       const data = await productById(id);
       data.length !== 0 ? setProduct(data[0]) : setError(true);
@@ -19,7 +18,7 @@ const ItemDetail = () => {
     getProduct();
   }, [id]);
   return (
-    <Suspense fallback={<span className="flex relative top-2/3 left-1/2"><Spinner /></span>}>
+    <Suspense fallback={<span className="flex absolute top-[40%] left-[50%]"><Spinner /></span>}>
       {!error ? (
         <>
           <Detail product={product} />

@@ -64,41 +64,29 @@ const BillingDetail = ({ order }) => {
               <div className="pl-2">
                 <div className="flex">
                   <span className="pb-5">Invoice:</span>
-                  <span className="pb-3 pl-6 uppercase font-extralight text-lg from-stone-400">
-                    {orderBD.id}
-                  </span>
+                  <span className="data-table pl-6">{orderBD.id}</span>
                 </div>
                 <div className="flex">
                   <span className="pb-3">Nombre:</span>
-                  <span className="pb-3 pl-4 uppercase font-extralight text-lg from-stone-400">
-                    {orderBD.name}
-                  </span>
+                  <span className="data-table pl-4">{orderBD.name}</span>
                 </div>
                 <div className="flex">
                   <span className="pb-3">Email:</span>
-                  <span className="pb-3 pl-10 uppercase font-extralight text-lg from-stone-400">
-                    {orderBD.email}
-                  </span>
+                  <span className="pdata-table l-10">{orderBD.email}</span>
                 </div>
               </div>
               <div>
                 <div className="flex">
                   <span className="pb-5">Date:</span>
-                  <span className="pb-3 pl-12 uppercase font-extralight text-lg from-stone-400">
-                    {date}
-                  </span>
+                  <span className="pdata-table l-12">{date}</span>
                 </div>
                 <div className="flex">
                   <span className="pb-3">Apellido:</span>
-                  <span className="pb-3 pl-4 uppercase font-extralight text-lg from-stone-400">
-                    {orderBD.lastName}
-                  </span>
+                  <span className="data-table pl-4">{orderBD.lastName}</span>
                 </div>
                 <div className="flex">
                   <span className="pb-3">Phone:</span>
-                  <span className="pb-3 pl-8 uppercase font-extralight text-lg from-stone-400">
-                    {orderBD.phone}
-                  </span>
+                  <span className="data-table pl-8">{orderBD.phone}</span>
                 </div>
               </div>
             </div>
@@ -110,39 +98,21 @@ const BillingDetail = ({ order }) => {
               <table className="table-auto w-full">
                 <thead className="table-header-group mt-4 uppercase">
                   <tr>
-                    <th className="w-1/5 text-center font-medium border-b-2 border-solid border-slate-200">
-                      Tilte
-                    </th>
-                    <th className="w-1/5 text-center font-medium border-b-2 border-solid border-slate-200">
-                      Brand
-                    </th>
-                    <th className="w-1/5 text-center font-medium border-b-2 border-solid border-slate-200">
-                      Units
-                    </th>
-                    <th className="w-1/5 text-center font-medium border-b-2 border-solid border-slate-200">
-                      Unit Price
-                    </th>
-                    <th className="w-1/5 text-center font-medium border-b-2 border-solid border-slate-200">
-                      Total Price
-                    </th>
+                    <th className="head-table">Tilte</th>
+                    <th className="head-table">Brand</th>
+                    <th className="head-table">Units</th>
+                    <th className="head-table">Unit Price</th>
+                    <th className="head-table">Total Price</th>
                   </tr>
                 </thead>
                 <tbody>
                   {order.order.map((item) => (
                     <tr key={item.id}>
-                      <td className="w-1/5 text-center border-b-2 border-solid border-slate-200">
-                        {item.title}
-                      </td>
-                      <td className="w-1/5 text-center border-b-2 border-solid border-slate-200">
-                        {item.brand}
-                      </td>
-                      <td className="w-1/5 text-center border-b-2 border-solid border-slate-200">
-                        {item.units}
-                      </td>
-                      <td className="w-1/5 text-center border-b-2 border-solid border-slate-200">
-                        {item.price}
-                      </td>
-                      <td className="w-1/5 text-center border-b-2 border-solid border-slate-200">
+                      <td className="w-1/5 detail-table">{item.title}</td>
+                      <td className="w-1/5 detail-table">{item.brand}</td>
+                      <td className="w-1/5 detail-table">{item.units}</td>
+                      <td className="w-1/5 detail-table">{item.price}</td>
+                      <td className="w-1/5 detail-table">
                         {item.units * item.price}
                       </td>
                     </tr>
@@ -152,13 +122,11 @@ const BillingDetail = ({ order }) => {
                   <tr>
                     <td></td>
                     <td></td>
-                    <td className="w-1/4 text-center border-b-2 border-solid border-slate-200">
+                    <td className="w-1/4 detail-table">
                       {orderBD.units} Units
                     </td>
                     <td></td>
-                    <td className="w-1/4 text-center border-b-2 border-solid border-slate-200">
-                      $ {orderBD.total}
-                    </td>
+                    <td className="w-1/4 detail-table">$ {orderBD.total}</td>
                   </tr>
                 </tfoot>
               </table>

@@ -1,6 +1,7 @@
 import { useState, useContext, useEffect, Suspense, lazy } from "react";
 import { customContext } from "./context/CustomContext";
 const ButtonIcon = lazy(() => import("../components/utils/ButtonIcon"));
+const Spinner = lazy(() => import("../components/utils/spinner/Spinner"));
 const BillingDetail = lazy(() => import("./BillingDetail"));
 
 const Buy = () => {
@@ -51,9 +52,15 @@ const Buy = () => {
   return (
     <>
       {billing ? (
-        <>
+        <Suspense
+          fallback={
+            <span className="flex absolute top-[40%] left-[50%]">
+              <Spinner />
+            </span>
+          }
+        >
           <BillingDetail order={userOrder} />
-        </>
+        </Suspense>
       ) : (
         <>
           <div

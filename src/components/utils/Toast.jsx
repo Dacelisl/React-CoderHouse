@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+/* usar dentro de un div con flex absolute  */
 
  const Toast = ({ message, type = "success", nameIcon, time = 5000 }) => {
   const [estado, setEstado] = useState(true);
@@ -11,7 +12,7 @@ import { useState, useEffect } from "react";
   }, [time]);
 
   return (
-    <div className="flex absolute z-30 items-end m-3 flex-col top-1 left-0">
+    <div className="flex fixed z-30 items-end m-3 flex-col top-[12%] left-0">
       <div
         className={
           estado

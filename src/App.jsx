@@ -12,11 +12,10 @@ const NotFound = lazy(() => import("./components/404/NotFound"));
 const CustomContext = lazy(() => import("./components/context/CustomContext"));
 
 export const App = () => {
-  console.log('en app');
   return (
     <>
       <BrowserRouter>
-        <Suspense fallback={<span className="flex relative top-[70] left-1/2 "><Spinner /></span>}>
+        <Suspense fallback={<span className="flex absolute top-[50%] left-[50%] "><Spinner /></span>}>
           <CustomContext>
             <NavBar />
             <Banner />

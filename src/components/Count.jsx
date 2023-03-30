@@ -20,7 +20,7 @@ const Count = ({ onAdd, stock }) => {
     <div>
       {toast ? (
         <>
-          <span className="flex absolute -top-[40%]">
+          <span className="flex absolute">
             <Toast message={"Agregaste " + units + " productos!!"} />
           </span>
         </>

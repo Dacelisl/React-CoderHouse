@@ -20,7 +20,6 @@ const ItemListContainer = () => {
         <Link to={"/*"} />;
       });
   }, [categoryId]);
-  console.log("en container");
   return (
     <>
       {!error ? (
@@ -28,7 +27,7 @@ const ItemListContainer = () => {
           {products.length > 0 ? (
             <Suspense
               fallback={
-                <span className="flex relative top-[60%] left-1/2 ">
+                <span className="flex absolute top-[40%] left-[50%]">
                   <Spinner />
                 </span>
               }
@@ -36,7 +35,7 @@ const ItemListContainer = () => {
               <ItemList products={products} />
             </Suspense>
           ) : (
-            <span className="flex relative top-2/3 left-1/2 ">
+            <span className="flex absolute top-[40%] left-[50%]">
               <Spinner />
             </span>
           )}
@@ -44,7 +43,7 @@ const ItemListContainer = () => {
       ) : (
         <Suspense
           fallback={
-            <span className="flex relative top-2/3 left-1/2 ">
+            <span className="flex absolute top-[50%] left-[50%]">
               <Spinner />
             </span>
           }
