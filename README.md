@@ -1,4 +1,4 @@
-![License - MIT](https://img.shields.io/github/license/dacelisl/React-CoderHouse.svg) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Dacelisl/React-CoderHouse/tree/withFire)
+![License - MIT]([https://img.shields.io/github/license/dacelisl/React-CoderHouse.svg](https://github.com/Dacelisl/React-CoderHouse/blob/withFire/license))
 
 <h1 align="center"> Curso React JS: Proyecto Final </h1>
 
