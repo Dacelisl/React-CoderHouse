@@ -11,7 +11,7 @@ const Detail = ({ product }) => {
 
   return (
     <div className="container p-2">
-      <div className="flex max-w-full md:relative xl:left-[20%] 2xl:left-[50%]" >
+      <div className="flex max-w-full md:relative xl:left-[20%] 2xl:left-[45%]" >
         <div className="mx-auto my-4 w-fit items-center justify-center md:grid-cols-2 md:absolute md:lef[20%] md:top-[35%] md:inline md:m-4">
           <div className="flex  md:float-left md:w[80%] lg:w-full lg:whitespace-nowrap">
             <img alt="product principal" src={product.thumbnail} />

@@ -13,15 +13,15 @@ const Cart = () => {
   return (
     <>
       {cart.length > 0 ? (
-        <div className="container ">
+        <div >
           <div className="table w-[80%] absolute left-[10%] overflow-auto">
             <div className="table-header-group h-11 bg-sky-100 ">
               <div className="table-row">
-                <div className="table-head-car"></div>
-                <div className="table-head-car ">PRODUCTO</div>
-                <div className="table-head-car">CANTIDAD</div>
-                <div className="table-head-car">PRECIO</div>
-                <div className="table-head-car pr-2">TOTAL</div>
+                <div className="table-cell text-center align-middle"></div>
+                <div className="table-cell text-center align-middle ">PRODUCTO</div>
+                <div className="table-cell text-center align-middle">CANTIDAD</div>
+                <div className="table-cell text-center align-middle">PRECIO</div>
+                <div className="table-cell text-center align-middle pr-2">TOTAL</div>
               </div>
             </div>
             <div className="table-row-group bg-blue-100 mr-4 mt-4 mb-4">
@@ -37,13 +37,13 @@ const Cart = () => {
               <div className="table-row bg-blue-200 mt-7">
                 <div className="table-cell"></div>
                 <div className="table-cell"></div>
-                <div className="table-head-car">
+                <div className="table-cell text-center align-middle">
                   <span className="inline-block font-semibold">
                     {detail.units}
                   </span>
                 </div>
                 <div className="table-cell"></div>
-                <div className="table-head-car pr-1 p-2">
+                <div className="table-cell text-center align-middle pr-1 p-2">
                   <span className="inline-block font-extralight text-2xl text-rose-600">
                     $ {detail.price}
                   </span>

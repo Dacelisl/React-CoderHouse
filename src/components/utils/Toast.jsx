@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
   }, [time]);
 
   return (
-    <div className="flex fixed z-30 items-end m-3 flex-col top-[12%] left-0">
+    <div className="flex fixed z-30 items-end m-3 flex-col top-[12%] left-0 md:left-[3%]">
       <div
         className={
           estado
