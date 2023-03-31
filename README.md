@@ -2,7 +2,7 @@
 
 <h1 align="center"> Curso React JS: Proyecto Final </h1>
 
-![Screenshot of React Coder](https://raw.githubusercontent.com/Dacelisl/React-CoderHouse/tree/withFire/ReactCoder.gif)
+![Screenshot of React Coder](https://github.com/Dacelisl/React-CoderHouse/blob/withFire/ReactCoder.gif)
 
 Link del Proyecto: [React Coder](https://github.com/Dacelisl/React-CoderHouse/tree/withFire).
 
