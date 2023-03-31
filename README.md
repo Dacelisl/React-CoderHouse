@@ -19,7 +19,7 @@ Link del Proyecto: [React Coder](https://github.com/Dacelisl/React-CoderHouse/tr
 
 Desarrollar una app de un e-commerce para poder vender productos de un rubro a elección.
 
-*User story/brief:
+* User story/brief:
     - Un usuario debe poder ingresar, navegar por los productos e ir a sus detalles.
     - Desde el detalle se debe poder ver la descripción, foto y precio e ingresarlo al
       carrito.
@@ -29,7 +29,7 @@ Desarrollar una app de un e-commerce para poder vender productos de un rubro a e
     - Al clickear ‘realizar compra’ debe guardarse en la base de datos una orden que
       tenga todos los productos, la fecha y dar feedback del proceso de compra.
 
-Componentes a entregar :
+* Componentes a entregar :
     - NavBar
     - CartWidget
     - ItemListContainer
